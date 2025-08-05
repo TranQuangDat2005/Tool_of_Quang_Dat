@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <link rel="stylesheet" href="index.css">
+    <div class="title-bar">
+        <div class="title-bar-text">Tool Web Quang Đạt</div>
+    </div>
+
+</head>
+
+<body>
+    <section class="tabs" style="max-width: 1080px ">
+
+        <menu role="tablist" aria-label="Sample Tabs">
+            <button role="tab" aria-selected="true" aria-controls="PDF">PDF</button>
+            <button role="tab" aria-controls="tab-B">Docx</button>
+            <button role="tab" aria-controls="tab-C">PowerPoint</button>
+        </menu>
+
+        <!--Tab 1-->
+        <article role="tabpanel" id="PDF">
+            <h3>Công cụ cho PDF</h3>
+            <div class="tool-container">
+                <p class="inline-text">Tải tool tách pdf (split): </p>
+
+                <a class="download-link" href="Tool/PDF_QuangTam.zip" download> Tải xuống </a>
+            </div>
+
+        </article>
+
+        <!--Tab 2-->
+        <article role="tabpanel" hidden id="tab-B">
+            <h3>Coming soon...</h3>
+
+        </article>
+
+        <!--Tab 3-->
+        <article role="tabpanel" hidden id="tab-C">
+            <h3>Coming soon...</h3>
+
+        </article>
+
+    </section>
+
+    <!-- manual -->
+    <section class="manual">
+        <h4>HƯỚNG DẪN CÀI ĐẶT</h4>
+        <p>Bước 1: Click "Tải xuống" công cụ mà bạn cần</p>
+        <p>Bước 2: Tìm tới file vừa tải, nhấn chuột phải và chọn "Extract All" để giải nén</p>
+        <a href="ManualPic/step2.png" target="_blank">
+            <img src="ManualPic/step2.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+        <p>Bước 3: Click đúp chuột vào file vừa giải nén </p>
+        <a href="ManualPic/step3.png" target="_blank">
+            <img src="ManualPic/step3.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+        <p>Bước 4: Click đúp chuột vào file có đuôi ".exe" </p>
+        <a href="ManualPic/step4.png" target="_blank">
+            <img src="ManualPic/step4.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+        <p>(Nếu màn hình hiển thị thông báo xanh) Bước 5: Chọn "More info" </p>
+        <a href="ManualPic/step5.png" target="_blank">
+            <img src="ManualPic/step5.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+        <p>(Nếu màn hình hiển thị thông báo xanh) Bước 6: Chọn "Run anyway" </p>
+        <a href="ManualPic/step6.png" target="_blank">
+            <img src="ManualPic/step6.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+
+        <h4>HƯỚNG DẪN SỬA LỖI</h4>
+        <p>Lỗi: Thiếu môi trường chạy</p>
+        <a href="ManualPic/error1.png" target="_blank">
+            <img src="ManualPic/error1.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+        <br>
+        <p>Cách giải quyết: </p>
+        <p>Bước 1: Tải java theo yêu cầu, ấn vào chữ download</p>
+        <a href="ManualPic/error2.png" target="_blank">
+            <img src="ManualPic/error2.png" alt="Minh họa hướng dẫn cài đặt" width="40%">
+        </a>
+        <p>Bước 2: Tải jdk 17: <a class="download-link"
+                href="https://www.dropbox.com/scl/fi/i60jvu2bjqxkns83adoly/jdk-17.0.9_windows-x64_bin.exe.zip?rlkey=su0g7oxts73bcr5r1ntbggvc0&st=eq14dqz0&dl=0"
+                download> Tải
+                JDK17 tại đây </a> </p>
+        <p>Bước 3: Giải nén và click đúp chuột vào file exe vừa tải ở cả 2 bước trên để khởi chạy môi trường</p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll('[role="tab"]');
+            const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(t => t.setAttribute("aria-selected", "false"));
+                    tab.setAttribute("aria-selected", "true");
+                    tabPanels.forEach(panel => panel.hidden = true);
+                    const tabId = tab.getAttribute("aria-controls");
+                    document.getElementById(tabId).hidden = false;
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
